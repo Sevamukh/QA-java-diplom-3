@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.junit4.DisplayName;
 import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +12,7 @@ import site.stellarburgers.model.LoginPage;
 import site.stellarburgers.model.MainPage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static site.stellarburgers.Browser.*;
 
 @RunWith(JUnitParamsRunner.class)
 @DisplayName("Переходы на страницы")
@@ -23,10 +23,7 @@ public class GoToPageTest {
 
     @BeforeClass
     public static void beforeAll() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver.exe");
-        Configuration.browserBinary = "Applications/Yandex.app";
-        WebDriver yandexDriver = new ChromeDriver();
-        WebDriverRunner.setWebDriver(yandexDriver);
+        browserChoice();
     }
 
     @Before
@@ -65,6 +62,6 @@ public class GoToPageTest {
 
     @AfterClass
     public static void afterAll() {
-        closeWebDriver();
+        closeNotChromeBrowser();
     }
 }

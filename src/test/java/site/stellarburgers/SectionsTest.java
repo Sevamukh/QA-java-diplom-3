@@ -2,15 +2,14 @@ package site.stellarburgers;
 
 import io.qameta.allure.junit4.DisplayName;
 import junitparams.JUnitParamsRunner;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import site.stellarburgers.model.ConstructorPage;
 import site.stellarburgers.model.MainPage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static site.stellarburgers.Browser.browserChoice;
+import static site.stellarburgers.Browser.closeNotChromeBrowser;
 
 @RunWith(JUnitParamsRunner.class)
 @DisplayName("Вкладки конструктора")
@@ -18,6 +17,11 @@ public class SectionsTest {
 
     MainPage mainPage;
     ConstructorPage constructorPage;
+
+    @BeforeClass
+    public static void beforeAll() {
+        browserChoice();
+    }
 
     @Before
     public void setUp() {
@@ -45,5 +49,10 @@ public class SectionsTest {
     @After
     public void tearDown(){
         clearBrowserLocalStorage();
+    }
+
+    @AfterClass
+    public static void afterAll() {
+        closeNotChromeBrowser();
     }
 }

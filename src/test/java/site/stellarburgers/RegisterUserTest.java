@@ -2,16 +2,15 @@ package site.stellarburgers;
 
 import io.qameta.allure.junit4.DisplayName;
 import junitparams.JUnitParamsRunner;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import site.stellarburgers.model.LoginPage;
 import site.stellarburgers.model.MainPage;
 import site.stellarburgers.model.RegistrationPage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static site.stellarburgers.Browser.browserChoice;
+import static site.stellarburgers.Browser.closeNotChromeBrowser;
 import static site.stellarburgers.generator.UserGenerator.*;
 
 @RunWith(JUnitParamsRunner.class)
@@ -22,6 +21,11 @@ public class RegisterUserTest {
     LoginPage loginPage;
     RegistrationPage registrationPage;
     String newEmail;
+
+    @BeforeClass
+    public static void beforeAll() {
+        browserChoice();
+    }
 
     @Before
     public void setUp() {
@@ -53,5 +57,10 @@ public class RegisterUserTest {
     @After
     public void tearDown(){
         clearBrowserLocalStorage();
+    }
+
+    @AfterClass
+    public static void afterAll() {
+        closeNotChromeBrowser();
     }
 }
