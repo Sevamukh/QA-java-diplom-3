@@ -35,6 +35,16 @@ public class AuthorizationTest {
         personalAccountPage = page(PersonalAccountPage.class);
     }
 
+    @After
+    public void tearDown(){
+        clearBrowserLocalStorage();
+    }
+
+    @AfterClass
+    public static void afterAll() {
+        closeNotChromeBrowser();
+    }
+
     @Test
     @DisplayName("Вход по кнопке «Войти в аккаунт» на главной")
     public void signInBySignInButtonOnMainPage() {
@@ -81,15 +91,4 @@ public class AuthorizationTest {
         loginPage.clickLogoLink();
         Assert.assertTrue(mainPage.checkIsSignInButtonEnabled());
     }
-
-    @After
-    public void tearDown(){
-        clearBrowserLocalStorage();
-    }
-
-    @AfterClass
-    public static void afterAll() {
-        closeNotChromeBrowser();
-    }
-
 }

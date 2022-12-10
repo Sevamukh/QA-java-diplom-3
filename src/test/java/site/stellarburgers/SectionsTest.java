@@ -29,6 +29,16 @@ public class SectionsTest {
         constructorPage = page(ConstructorPage.class);
     }
 
+    @After
+    public void tearDown(){
+        clearBrowserLocalStorage();
+    }
+
+    @AfterClass
+    public static void afterAll() {
+        closeNotChromeBrowser();
+    }
+
     @Test
     public void bunTabValidWorking() {
         Assert.assertTrue(constructorPage.checkIsBunTabSelected());
@@ -44,15 +54,5 @@ public class SectionsTest {
     public void fillingTabValidWorking() {
         constructorPage.clickFillingTab();
         Assert.assertTrue(constructorPage.checkIsFillingTabSelected());
-    }
-
-    @After
-    public void tearDown(){
-        clearBrowserLocalStorage();
-    }
-
-    @AfterClass
-    public static void afterAll() {
-        closeNotChromeBrowser();
     }
 }

@@ -39,6 +39,16 @@ public class RegisterUserTest {
         newEmail = getNewRandomEmail();
     }
 
+    @After
+    public void tearDown(){
+        clearBrowserLocalStorage();
+    }
+
+    @AfterClass
+    public static void afterAll() {
+        closeNotChromeBrowser();
+    }
+
     @Test
     @DisplayName("Регистрация с валидными данными")
     public void registerUserSuccessfully() {
@@ -52,15 +62,5 @@ public class RegisterUserTest {
     public void registerUserWithShortPassword() {
         registrationPage.register(DEFAULT_NAME, newEmail, SHORT_PASSWORD);
         Assert.assertTrue(registrationPage.checkIsIncorrectPasswordTextVisible());
-    }
-
-    @After
-    public void tearDown(){
-        clearBrowserLocalStorage();
-    }
-
-    @AfterClass
-    public static void afterAll() {
-        closeNotChromeBrowser();
     }
 }

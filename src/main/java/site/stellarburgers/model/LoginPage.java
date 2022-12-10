@@ -17,11 +17,11 @@ public class LoginPage extends Header {
     private SelenideElement REGISTER_LINK;
 
     // локатор поля ввода email
-    @FindBy(how = How.CSS, using = "fieldset:nth-child(1)>div>div>input")
+    @FindBy(how = How.XPATH, using = "//input[@name='name']")
     private SelenideElement EMAIL_INPUT_FIELD;
 
     // локатор поля ввода пароля
-    @FindBy(how = How.CSS, using = "fieldset:nth-child(2)>div>div>input")
+    @FindBy(how = How.XPATH, using = "//input[@name='Пароль']")
     private SelenideElement PASSWORD_INPUT_FIELD;
 
     // локатор кнопки "Войти"

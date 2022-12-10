@@ -1,13 +1,10 @@
 package site.stellarburgers;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.junit4.DisplayName;
 import junitparams.JUnitParamsRunner;
 import org.junit.*;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import site.stellarburgers.model.LoginPage;
 import site.stellarburgers.model.MainPage;
 
@@ -32,6 +29,16 @@ public class GoToPageTest {
         loginPage = page(LoginPage.class);
     }
 
+    @After
+    public void tearDown(){
+        clearBrowserLocalStorage();
+    }
+
+    @AfterClass
+    public static void afterAll() {
+        closeNotChromeBrowser();
+    }
+
     @Test
     @DisplayName("Переход в личный кабинет")
     public void goToPersonalAccount() {
@@ -53,15 +60,5 @@ public class GoToPageTest {
         mainPage.clickPersonalAccountLink();
         loginPage.clickLogoLink();
         Assert.assertEquals(WebDriverRunner.url(), MainPage.MAIN_PAGE_URL);
-    }
-
-    @After
-    public void tearDown(){
-        clearBrowserLocalStorage();
-    }
-
-    @AfterClass
-    public static void afterAll() {
-        closeNotChromeBrowser();
     }
 }
