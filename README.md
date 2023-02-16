@@ -5,7 +5,7 @@
 </section>
 <section class="theory-viewer__block theory-viewer__block_type_markdown">
 <div class="Markdown base-markdown base-markdown_with-gallery markdown markdown_size_normal markdown_type_theory full-markdown">
-<div class="paragraph">Здесь представлен мой дипломный проект по тестированию UI по курсу "Автоматизатор тестирования на Java" Яндекс Практикума. Цель: протестировать определенные UI-элементы <a href="https://stellarburgers.nomoreparties.site/" target="_blank" rel="noopener">веб-приложения Stellar Burgers</a>.</div>
+<div class="paragraph">Здесь представлен мой дипломный проект по тестированию UI по курсу "Автоматизатор тестирования на Java" Яндекс Практикума. Цель: протестировать определенный функционал <a href="https://stellarburgers.nomoreparties.site/" target="_blank" rel="noopener">веб-приложения Stellar Burgers</a>.</div>
 <div class="paragraph">Использованные элементы описаны с помощью Page Object. Функциональность протестирована в Google Chrome и Яндекс.Браузере. Стэк: Java 8 + Maven + JUnit 4 + Selenoid + Allure.</div>
 <div class="paragraph"><strong>Регистрация</strong></div>
 <div class="paragraph">Проверены:</div>
